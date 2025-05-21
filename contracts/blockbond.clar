@@ -371,7 +371,7 @@
     ;; Check if holder has bonds to redeem
     (asserts! (> holder-units u0) ERR-NOT-BOND-OWNER)
     ;; Check if issuer has sufficient balance for redemption
-    (asserts! (>= (stx-get-balance issuer) redemption-amount) ERR-INSUFFICIENT_FUNDS)
+    (asserts! (>= (stx-get-balance issuer) redemption-amount) ERR-INSUFFICIENT-FUNDS)
     
     ;; Transfer principal from issuer to holder
     (try! (stx-transfer? redemption-amount issuer tx-sender))
@@ -403,7 +403,7 @@
     ;; Ensure bond is not already mature
     (asserts! (not (get is-mature bond)) ERR-BOND-ALREADY-MATURE)
     ;; Check if issuer has sufficient balance for redemption
-    (asserts! (>= (stx-get-balance issuer) redemption-amount) ERR-INSUFFICIENT_FUNDS)
+    (asserts! (>= (stx-get-balance issuer) redemption-amount) ERR-INSUFFICIENT-FUNDS)
     
     ;; Transfer principal from issuer to holder
     (try! (stx-transfer? redemption-amount issuer tx-sender))
